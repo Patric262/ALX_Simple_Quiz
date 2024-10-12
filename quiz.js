@@ -1,24 +1,26 @@
 // Function to check the user's answer
 function checkAnswer() {
-    // Define the correct answer
-    const correctAnswer = "4";
+    // Declare the correct answer (now matching the ID of the correct choice)
+    const correctAnswer = document.getElementById('choice1'); // Choice with the correct answer is "choice1"
     
-    // Get the selected answer from the radio buttons
+    // Retrieve the user's selected answer
     const userAnswer = document.querySelector('input[name="quiz"]:checked');
     
-    // If no answer is selected, return without feedback
-    if (!userAnswer) {
-        document.getElementById("feedback").textContent = "Please select an answer!";
-        return;
-    }
-    
-    // Compare the user's answer with the correct answer
-    if (userAnswer.value === correctAnswer) {
-        document.getElementById("feedback").textContent = "Correct! Well done.";
+    // Check if an answer was selected
+    if (userAnswer) {
+        // Compare the selected input element with the correct input element
+        if (userAnswer === correctAnswer) {
+            // If correct, display success message
+            document.getElementById('feedback').textContent = "Correct! Well done.";
+        } else {
+            // If incorrect, display error message
+            document.getElementById('feedback').textContent = "That's incorrect. Try again!";
+        }
     } else {
-        document.getElementById("feedback").textContent = "That's incorrect. Try again!";
+        // If no answer is selected, prompt the user to choose an option
+        document.getElementById('feedback').textContent = "Please select an answer.";
     }
 }
 
 // Add an event listener to the submit button
-document.getElementById("submit-answer").addEventListener("click", checkAnswer);
+document.getElementById('submit-answer').addEventListener('click', checkAnswer);
