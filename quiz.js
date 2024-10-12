@@ -1,15 +1,15 @@
 // Function to check the user's answer
 function checkAnswer() {
-    // Declare the correct answer (now matching the ID of the correct choice)
-    const correctAnswer = document.getElementById('choice1'); // Choice with the correct answer is "choice1"
+    // Declare the correct answer
+    const correctAnswer = "4";
     
     // Retrieve the user's selected answer
     const userAnswer = document.querySelector('input[name="quiz"]:checked');
     
     // Check if an answer was selected
     if (userAnswer) {
-        // Compare the selected input element with the correct input element
-        if (userAnswer === correctAnswer) {
+        // Compare the selected answer with the correct answer
+        if (userAnswer.value === correctAnswer) {
             // If correct, display success message
             document.getElementById('feedback').textContent = "Correct! Well done.";
         } else {
